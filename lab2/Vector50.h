@@ -15,6 +15,13 @@ class Vector50{
           data[i]=rhs.data[i];
         }
       }
+    Vector50& operator=(Vector50&& rhs)
+      {
+        std::swap(size, rhs.size);
+        std::swap(capacity, rhs.capacity);
+        std::swap(data, rhs.data);
+        return this*;
+      }
 
   private:
 
