@@ -5,7 +5,7 @@
 #define VECTOR20_H
 
 #include <iostream>
-#include <cassert>  
+#include <cassert>
 
 using namespace std;
 
@@ -32,7 +32,7 @@ public:
 			data[k] = rhs.data[k];
 		return *this;
 	}
-	
+
 	~Vector20()
 	{
 		delete[] data;
@@ -96,12 +96,13 @@ public:
 	void pop_back() {
 		--theSize;
 	}
-
-	// to be added in LAB WEEK-4
-	// copy from lecture
 	void erase(int index)
 	{
-		// to be filled for Lab4
+		assert(index>=0&&index<theSize);
+		for (int i = index+1; i < theSize; i++) {
+			data[i-1]=data[i];
+		}
+		pop_back();
 		return;
 	}
 
@@ -109,10 +110,16 @@ public:
 	// to be written by you
 	void insert(int index, int value)
 	{
-		// to be filled for Lab4
-		return;
+			assert(index>=0&&index<theSize);
+			push_back(back());
+			int i;
+			for(i=theSize-1; i>index; i--){
+				data[i]=data[(i-1)];
+			}
+			data[i]=value;
+			return;
 	}
-	
+
 
 private:
 	int theSize;

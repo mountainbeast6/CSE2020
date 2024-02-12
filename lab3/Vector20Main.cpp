@@ -21,12 +21,11 @@ int main()
 	print_Vector20(myvec);  // showing contents of myvec
 
 	// asking for target index and how many times an erase is to happen
-	// at this index; 
+	// at this index;
 
-	/* -- UNCOMMENT FOR LAB4, EXERCISE 2 --- 
 	int target;
 	int howmany;
-	cout << "Enter index of element to erase [0 - " << myvec.size() - 1 << "]: "; 
+	cout << "Enter index of element to erase [0 - " << myvec.size() - 1 << "]: ";
 	cin >> target;
 	cout << endl;
 	cout << "Erase at this index how many times [0 - " << myvec.size() - target << "]: ";
@@ -39,13 +38,7 @@ int main()
 		cout << endl;
 	}
 	cout << endl;
-	*/
-
-	// asking for a target index and how many times value 999 is 
-	// to be inserted at this index
-
-	/* -- UNCOMMENT FOR LAB4, EXERCISE 3 --
-	cout << "Enter index of element to insert 999 [0 - " << myvec.size() - 1 << "]: "; 
+	cout << "Enter index of element to insert 999 [0 - " << myvec.size() - 1 << "]: ";
 	cin >> target;
 	cout << endl;
 	cout << "Insert at this index how many times [0 - " << myvec.size() - 1 << "]: ";
@@ -57,7 +50,6 @@ int main()
 		print_Vector20(myvec);
 		cout << endl;
 	}
-	*/
 
 	return 0;
 
@@ -69,4 +61,3 @@ int main()
 			cout << vec[i] << " ";
 		cout << endl << endl;
 	}
-
