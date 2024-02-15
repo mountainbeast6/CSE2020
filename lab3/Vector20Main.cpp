@@ -46,18 +46,33 @@ int main()
 	cout << endl;
 	for (int i = 1; i <= howmany; ++i)
 	{
-		myvec.insert(target,999);
+		myvec.RInsert(target,999);
 		print_Vector20(myvec);
 		cout << endl;
 	}
-
+	Vector20<int>::iterator itr = myvec.begin();
+	int moves;
+	cout << endl;
+	cout <<"How many positions to move the iterator?";
+	cin>>moves;
+	cout<<endl;
+	for(int i=0; i<moves; i++){
+		itr++;
+	}
+	cout<<"What do you want at this position?";
+	cin>>target;
+	cout<<endl<<endl;
+	myvec.insert(itr,target);
+	print_Vector20(myvec);
+	cout<<endl;
 	return 0;
 
 }
 
 	void print_Vector20(Vector20<int> vec)
 	{
-		for (int i = 0; i < vec.size(); ++i)
-			cout << vec[i] << " ";
+		Vector20<int>::iterator itr;
+		for (itr=vec.begin(); itr!=vec.end(); itr++)
+			cout << *itr << " ";
 		cout << endl << endl;
 	}

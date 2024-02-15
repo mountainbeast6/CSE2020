@@ -67,7 +67,20 @@ public:
 	{
 		return data[0];
 	}
-
+	typedef T* iterator;
+	typedef const T* constIterator;
+	iterator begin(){
+		return &data[0];
+	}
+	constIterator begin() const{
+		return &data[0];
+	}
+	iterator end(){
+		return &data[theSize];
+	}
+	constIterator end() const{
+		return &data[theSize];
+	}
 	void push_back(const T& x)
 	{
 		if (theSize < theCapacity)
@@ -92,7 +105,6 @@ public:
 			theSize++;
 		}
 	}
-
 	void pop_back() {
 		--theSize;
 	}
@@ -119,8 +131,35 @@ public:
 			data[i]=value;
 			return;
 	}
-
-
+	void insert(iterator itr, int value){
+		if (itr==end()){
+			push_back (value);
+			return;
+		}
+		assert (itr>=begin()&&itr<end());
+		push_back(back());
+		iterator front = end()-2;
+		iterator back = end()-1;
+		while(front>=itr){
+			*back=*front;
+			front--;
+			back--;
+		}
+		*itr=value;
+		return;
+	}
+	void RInsert(int index, int value)
+	{
+			assert(index>=0&&index<theSize);
+			push_back(data[index]);
+			data[index]=value;
+	}
+	void RErase(int index)
+	{
+			assert(index>=0&&index<theSize);
+			data[index]=data[size-1];
+			pop_back;
+	}
 private:
 	int theSize;
 	int theCapacity;
