@@ -118,8 +118,16 @@ public:
 		return;
 	}
 
-	// to be added in LAB WEEK-4
-	// to be written by you
+	void erase(iterator itr){
+		assert (itr>=begin()&&itr<end());
+		iterator next = itr+1;
+		while(itr<end()-1){
+			*itr=*next;
+			next++;
+			itr++;
+		}
+		pop_back();
+	}
 	void insert(int index, int value)
 	{
 			assert(index>=0&&index<theSize);

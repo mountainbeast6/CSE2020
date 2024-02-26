@@ -38,19 +38,18 @@ int main()
 		cout << endl;
 	}
 	cout << endl;
-	cout << "Enter index of element to insert 999 [0 - " << myvec.size() - 1 << "]: ";
+	cout << "Enter index of element to remove [0 - " << myvec.size() - 1 << "]: ";
 	cin >> target;
 	cout << endl;
-	cout << "Insert at this index how many times [0 - " << myvec.size() - 1 << "]: ";
-	cin >> howmany;
 	cout << endl;
-	for (int i = 1; i <= howmany; ++i)
-	{
-		myvec.RInsert(target,999);
-		print_Vector20(myvec);
-		cout << endl;
-	}
 	Vector20<int>::iterator itr = myvec.begin();
+	for (int i = 1; i <= target; ++i)
+	{
+		itr++;
+	}
+	myvec.erase(itr);
+	print_Vector20(myvec);
+	itr = myvec.begin();
 	int moves;
 	cout << endl;
 	cout <<"How many positions to move the iterator?";
