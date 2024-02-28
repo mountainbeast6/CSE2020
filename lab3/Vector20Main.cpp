@@ -25,6 +25,7 @@ int main()
 
 	int target;
 	int howmany;
+	Vector20<int>::iterator itr;
 	cout << "Enter index of element to erase [0 - " << myvec.size() - 1 << "]: ";
 	cin >> target;
 	cout << endl;
@@ -37,24 +38,24 @@ int main()
 		print_Vector20(myvec);
 		cout << endl;
 	}
-	cout << endl;
-	cout << "Enter index of element to remove [0 - " << myvec.size() - 1 << "]: ";
+	cout << "Enter index of element to insert 99 [0 - " << myvec.size() - 1 << "]: ";
 	cin >> target;
 	cout << endl;
 	cout << endl;
-	Vector20<int>::iterator itr = myvec.begin();
-	for (int i = 1; i <= target; ++i)
-	{
-		itr++;
-	}
-	myvec.erase(itr);
-	print_Vector20(myvec);
-	itr = myvec.begin();
-	int moves;
+	cout << "insert at this index how many times [0 - " << myvec.size() - target << "]: ";
+	cin >> howmany;
 	cout << endl;
+	for (int i = 1; i <= howmany; ++i)
+	{
+		myvec.insert(target, 99);
+		print_Vector20(myvec);
+		cout << endl;
+	}
 	cout <<"How many positions to move the iterator?";
+	int moves;
 	cin>>moves;
 	cout<<endl;
+	itr=myvec.begin();
 	for(int i=0; i<moves; i++){
 		itr++;
 	}
@@ -64,8 +65,37 @@ int main()
 	myvec.insert(itr,target);
 	print_Vector20(myvec);
 	cout<<endl;
+	cout<<"Adding 3 random numbers at 3 random indecies: "<<endl;
+	for(int i =0; i<=2; i++){
+		myvec.insert(rand()%myvec.size(), rand()%100);
+	}
+	print_Vector20(myvec);
+	cout<<"Removing First, Middle, Last With Iterator."<<endl;
+	int begin;
+	int middle;
+	int end;
+	itr=myvec.begin();
+	begin = *itr;
+	myvec.erase(itr);
+	cout<<begin<<endl;
+	int j=0;
+	itr=myvec.begin();
+	while(itr!=myvec.end()){
+		itr++;
+		j++;
+	}
+	itr--;
+	end = *itr;
+	myvec.erase(itr);
+	cout<<end<<endl;
+	for(int i=0; i<j/2; i++){
+		itr--;
+	}
+	middle = *itr;
+	myvec.erase(itr);
+	cout<<middle<<endl;
+	print_Vector20(myvec);
 	return 0;
-
 }
 
 	void print_Vector20(Vector20<int> vec)
