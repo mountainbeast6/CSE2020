@@ -1,8 +1,9 @@
 // postfix calculator; simple case with operands that can
 // only be single characters or single digits, no white space;
-// Kerstin Voigt, CSE 2020  Spring 2023; Lab 7 
+// Kerstin Voigt, CSE 2020  Spring 2023; Lab 7
 
 #include "Postfix.h"
+#include <iostream>
 
 using namespace std;
 
@@ -12,10 +13,10 @@ int main()
 	string ws;
 	bool quit = false;
 
-	do 
+	do
 	{
 		cout << "Enter postfix expr: ";
-		getline(cin,postfix); 
+		getline(cin,postfix);
 		cout << "The postfix expr is: " << postfix;
 		cout << endl << endl;
 		int value = eval_postfix(postfix);
@@ -33,6 +34,3 @@ int main()
 	while (!quit);
 	return 0;
 }
-
-
-				

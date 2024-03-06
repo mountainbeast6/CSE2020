@@ -69,22 +69,21 @@ public:
     return iterator(p->prev=p->prev->next=new Node{x, p.prev, p});
   }
   void push_front(const T & x){
-    insert(begin(), x);
+    insert(head->next, x);
   }
-  void push_back(const T & x){
-    insert(end(), x);
-  }
-  void popFront(){
-    erase (begin());
-  }
-  void popBack(){
-    erase (end());
-  }
-  void clear(){
-    while (!empty()) {
-      popFront();
-    }
-  }
+  // void push_back(const T & x){
+  //   insert(end(), x);
+  // }
+  // void popFront(){
+  //   erase (begin());
+  // }
+  // void popBack(){
+  //   erase (end());
+  // }
+  // void clear(){
+  //   while (!empty()) {
+  //     popFront();
+  //   }
 private:
   int size;
   Node * head;
@@ -92,6 +91,6 @@ private:
   void init(){
     size =0;
     head = nullptr;
-    tail = nullptr;  
-  };
-}
+    tail = nullptr;
+  }
+};

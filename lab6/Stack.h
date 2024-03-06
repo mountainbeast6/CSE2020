@@ -17,6 +17,11 @@ public:
   value_type top(){
     return thestack.back();
   }
+  void clear(){
+    while(!empty()){
+      pop();
+    }
+  }
 private:
   C thestack;
 };

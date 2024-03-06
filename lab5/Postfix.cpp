@@ -32,13 +32,13 @@ int eval_postfix(string postfix)
 		{
 			assert(is_operator(next));
 			cout << "operator " << next << " to be applied ..." << endl << endl;
-			int x2 = stack.top();
-			stack.pop();
-			cout << "... pop " << x2 << endl << endl;
-
 			int x1 = stack.top();
 			stack.pop();
 			cout << "... pop " << x1 << endl << endl;
+
+			int x2 = stack.top();
+			stack.pop();
+			cout << "... pop " << x2 << endl << endl;
 
 			result = apply_op(next, x1, x2);
 			stack.push(result);
