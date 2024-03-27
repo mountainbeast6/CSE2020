@@ -17,7 +17,7 @@ int linear_search_V(const Vector<T>& vec, const T& target){
 
 template <typename T>
 typename List<T>::const_iterator linear_search_L(const List<T>& lst, const T& target){
-      List<T>::const_iterator itr;
+      typename List<T>::const_iterator itr;
       for(itr=lst.begin(); itr!=lst.end();itr++){
         if(*itr==target){
           return itr;
@@ -34,7 +34,7 @@ int rec_linear_search_V(int i, const Vector<T> vec, const T& target){
   return rec_linear_search_V(i+1, vec, target);
 }
 template <typename T>
-typename List<T>::const_iterator rec_linear_search_V (typename List<T>::const_iterator itr,const List<T>& lst, const T& target){
+typename List<T>::const_iterator rec_linear_search_L (typename List<T>::const_iterator itr,const List<T>& lst, const T& target){
   if(itr == lst.end()){
     return lst.end();
   }
@@ -42,6 +42,7 @@ typename List<T>::const_iterator rec_linear_search_V (typename List<T>::const_it
     return itr;
   }
   itr++;
-  return(itr, lst, target);
+  return rec_linear_search_L(itr, lst, target);
 }
+
 #endif
