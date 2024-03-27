@@ -81,7 +81,7 @@ public:
     }
 
 private:
-    int size =0;
+    int big =0;
     BinaryNode* root;
 
 
@@ -109,7 +109,6 @@ private:
             delete t;
         }
         t = 0;
-        size=0;
     }
 
     void printInternal(BinaryNode* t, int offset) const
@@ -153,7 +152,15 @@ private:
 
     int size(BinaryNode* t) const
     {
-        return size; // temp PLACE HOLDER for the actual code
+        int yeet=0;
+        if(t->left!=nullptr){
+          yeet +=size(t->left);
+        }
+        if(t->right!=nullptr){
+          yeet +=size(t->right);
+        }
+        yeet+=1;
+        return yeet;
     }
 
 };
