@@ -42,9 +42,10 @@ int main()
 	temp = v.size()/2;
 	for(int i=0; i<temp; i++){
 		temp2 = rand_int(0, v.size());
-		cout <<"Now removing " << v[temp2] <<endl;
+		cout <<"Now removing " << v[1] <<endl;
 		mybst.remove(v[temp2]);
 		v.erase(v.begin()+temp2);
+		mybst.printInternal();
 	}
 	cout << endl << endl;
 	cout << "Here is the new structure of the BST: " << endl;

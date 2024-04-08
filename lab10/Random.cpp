@@ -16,7 +16,7 @@ int rand_int(int a, int b)
 	return a + rand() % (b - a + 1);
 }
 
-// n*10% chance of negative number; repeats allowed; 
+// n*10% chance of negative number; repeats allowed;
 // absolute value between from and upto;
 
 

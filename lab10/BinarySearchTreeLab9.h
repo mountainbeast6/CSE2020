@@ -124,37 +124,39 @@ private:
         t = 0;
     }
     void remove(const T& x, BinaryNode*& t){
-      cout<<"1";
 
-      if(t==nullptr){
+      int asdf=0;
+      std::cin >> asdf;
+      if(t->element==0){
         return;
       }
       if(x < t->element){
+        cout<<"2";
         remove(x, t->left);
       }
       else if(t->element < x) {
+        cout<<"3";
         remove(x, t->right);
       }
       else{
-        if(t->right !=nullptr){
-          cout<<"2";
+        if(t->right != 0){
+          cout<<"4";
           t->element=findMin(t->right)->element;
           remove(t->element, t->right);
 
 
         }
         else{
-          BinaryNode* oldNode = t;
-         if (t->left!=nullptr){
-          cout<<"3";
-          t=t->left;
+         if (t->left!=0){
+           std::cout << "5" << '\n';
+           t->element=t->left->element;
+           remove(t->element, t->left);
 
         }
         else{
-          t=nullptr;
           cout<<"FUUUUCK";
+          t=nullptr;
         }
-        delete oldNode;
       }
       }
     }
