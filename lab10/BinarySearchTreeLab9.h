@@ -46,10 +46,10 @@ public:
       assert(!isEmpty());
       return findMin(root)->element;
     }
-    void insert(const T& x)
+    bool insert(const T& x)
     {
         // calls private insert ...
-        insert(x, root);     // ==> LAB 10: add private fct from Module 6.2
+        return insert(x, root);     // ==> LAB 10: add private fct from Module 6.2
     }
 
     // LAB 10: print all elements (values) in line
@@ -92,10 +92,11 @@ private:
 
     //the private member fcts that do all the work...
 
-    void insert(const T& x, BinaryNode*& t)
+    bool insert(const T& x, BinaryNode*& t)
     {
         if(t==nullptr){
           t= new BinaryNode{x, nullptr, nullptr};
+          return true;
         }
         else if(t->element > x){
           return insert(x, t->right);
@@ -103,6 +104,7 @@ private:
         else if(t->element < x){
           return insert(x, t->left);
         }
+        return false;
     }
     BinaryNode * findMin(BinaryNode *t) const{
       if(t==0){
@@ -126,36 +128,39 @@ private:
     void remove(const T& x, BinaryNode*& t){
 
       int asdf=0;
-      std::cin >> asdf;
+      // std::cin >> asdf;
       if(t->element==0){
+        // cout<<"1"<<endl;
         return;
       }
-      if(x < t->element){
-        cout<<"2";
+      if(x > t->element){
+        // cout<<"2: Current Value = "<<t->element<<"-- Target = "<< x <<endl;
         remove(x, t->left);
+        return;
       }
-      else if(t->element < x) {
-        cout<<"3";
+      else if(t->element > x) {
+        // cout<<"3: Current Value = "<<t->element<<"-- Target = "<< x <<endl;
         remove(x, t->right);
+        return;
       }
       else{
-        if(t->right != 0){
-          cout<<"4";
+        if(!(t->right ==nullptr)){
+          // cout<<"4: Current Value = "<<t->element<<"-- Target = "<< x <<endl;
+          // std::cin >> asdf;
           t->element=findMin(t->right)->element;
           remove(t->element, t->right);
-
-
-        }
-        else{
-         if (t->left!=0){
-           std::cout << "5" << '\n';
-           t->element=t->left->element;
-           remove(t->element, t->left);
+          return;
 
         }
         else{
-          cout<<"FUUUUCK";
+         if (!(t->left==nullptr)){
+           // std::cout << "5" << '\n';
+           t=t->left;
+           return;
+        }
+        else{
           t=nullptr;
+          return;
         }
       }
       }
@@ -164,7 +169,7 @@ private:
     {
         for (int i = 1; i <= offset; i++)
             cout << "..";
-        if (t == nullptr)
+        if (t == 0)
         {
             cout << "#" << endl;
             return;

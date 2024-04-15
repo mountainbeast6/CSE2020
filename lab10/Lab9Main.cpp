@@ -21,7 +21,9 @@ int main()
 	for (int i = 1; i <= how_many; i++)
 	{
 		temp = rand_int(1, 250);
-		mybst.insert(temp);
+		if (!(mybst.insert(temp))) {
+			i--;
+		}
 		v.push_back(temp);
 	}
 	cout << endl << how_many << " values entered" << endl << endl;
@@ -42,7 +44,7 @@ int main()
 	temp = v.size()/2;
 	for(int i=0; i<temp; i++){
 		temp2 = rand_int(0, v.size());
-		cout <<"Now removing " << v[1] <<endl;
+		cout <<"Now removing " << v[temp2] <<endl;
 		mybst.remove(v[temp2]);
 		v.erase(v.begin()+temp2);
 		mybst.printInternal();
