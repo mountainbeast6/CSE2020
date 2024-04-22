@@ -47,7 +47,7 @@ int main()
 		cout <<"Now removing " << v[temp2] <<endl;
 		mybst.remove(v[temp2]);
 		v.erase(v.begin()+temp2);
-		mybst.printInternal();
+		// mybst.printInternal();
 	}
 	cout << endl << endl;
 	cout << "Here is the new structure of the BST: " << endl;
